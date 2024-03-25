@@ -3,7 +3,7 @@ package hangman;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Arrays; // Added import for Arrays class
+import java.util.Arrays; 
 
 public class Operations {
     private static final Scanner scanner = new Scanner(System.in);
@@ -14,7 +14,7 @@ public class Operations {
         String input = scanner.nextLine().trim();
         while (input.isEmpty()) {
             System.out.println("Name cannot be empty. Press ENTER to try again");
-            scanner.nextLine(); // Consume the newline character
+            scanner.nextLine(); 
             VisualRenders.RenderHangmanLogo();
             System.out.print("Give me your name/nickname: ");
             input = scanner.nextLine().trim();
@@ -43,7 +43,7 @@ public class Operations {
     }
     
     public static boolean InitRound(String word, Player player) {
-        int maxWrongGuesses = 5; // Remove 'final' keyword
+        int maxWrongGuesses = 5; 
         int hangmanToShow = 0;
         List<Character> historicalGuesses = new ArrayList<>();
         String[] desiredArray = word.chars().mapToObj(c -> (char) c + " ").toArray(String[]::new);
@@ -102,10 +102,10 @@ public class Operations {
             }
         }
 
-        // Last Render : Player lose
+        // Last Render ||  Player lose
         roundDone = true;
         feedback = "Sorry! YOU LOST this game";
-        if (!Arrays.equals(wordArray, desiredArray)) { // Only render if the player didn't win
+        if (!Arrays.equals(wordArray, desiredArray)) { 
             VisualRenders.RenderGame(player.getName(), maxWrongGuesses, historicalGuesses, hangmanToShow, wordArray, feedback, word);
             VisualRenders.RenderYouLose();
         }
