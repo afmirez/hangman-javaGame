@@ -20,16 +20,14 @@ public class VisualRenders {
 
     public static void RenderInit() {
         int counter = 0;
-        int windowWidth = 80; // Assuming console width is 80 characters
+        int windowWidth = 80; 
         String phrase = "Loading game";
         long startTime = System.currentTimeMillis();
 
         while (counter < 9) {
-            // Clear the screen
             System.out.print("\033[H\033[2J");
             System.out.flush();
             
-            // Print the contents
             System.out.println(spaceShip);
             System.out.println(horizontalBanner);
             int elapsedTime = (int)(System.currentTimeMillis() - startTime);
